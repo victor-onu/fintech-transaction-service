@@ -1,7 +1,7 @@
 package com.victor.transactionservice.service.dto;
 
-import com.victor.fintechaccountservice.domain.enumeration.Gender;
-import com.victor.fintechaccountservice.domain.enumeration.Status;
+import com.victor.transactionservice.domain.enumeration.Gender;
+import com.victor.transactionservice.domain.enumeration.Status;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
