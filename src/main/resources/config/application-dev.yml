@@ -32,9 +32,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/transactionService?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: jdbc:mysql://us-cdbr-east-05.cleardb.net/heroku_dd0c2e948a4297f?reconnect=true
+    username: b4e54854f368a5
+    password: 2343c59d
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -61,8 +61,11 @@ spring:
       discovery:
         enabled: true
 
+  application:
+    name: TRANSACTION-SERVICE
+
 server:
-  port: 8088
+  port: ${PORT:8088}
 
 # ===================================================================
 # JHipster specific properties
@@ -104,4 +107,15 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+application:
+  notificationServiceUrl: http://notification-service/api
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: https://fintech-registry-service.herokuapp.com/eureka/
+  instance:
+    hostname: fintech-transaction-service.herokuapp.com
+    non-secure-port: 80
