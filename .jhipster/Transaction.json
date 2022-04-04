@@ -1,0 +1,64 @@
+{
+  "name": "Transaction",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TransactionType",
+      "fieldValues": "DEPOSIT,WITHDRAWAL,BILLS,TRANSFER"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "commissionAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentReference",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "TransactionStatus",
+      "fieldValues": "PENDING,FAILED,SUCCESSFUL"
+    },
+    {
+      "fieldName": "sourceAccountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "destinationAccountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responseMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountOwnerId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "transaction",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["transactionService"],
+  "microserviceName": "transactionService",
+  "clientRootFolder": "transactionService",
+  "databaseType": "sql",
+  "changelogDate": "20220404010020"
+}

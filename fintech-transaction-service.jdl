@@ -1,0 +1,48 @@
+
+application {
+  config {
+    baseName transactionService
+    applicationType microservice
+    packageName com.victor.transactionservice
+    serviceDiscoveryType no
+    databaseType sql
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    cacheProvider no
+    buildTool maven
+    skipUserManagement true
+    serverPort 8088
+  }
+  entities *
+  service * with serviceImpl
+  dto * with mapstruct
+  paginate * with pagination
+}
+
+enum TransactionType {
+  DEPOSIT,
+  WITHDRAWAL,
+  BILLS,
+  TRANSFER
+}
+
+enum TransactionStatus {
+  PENDING,
+  FAILED,
+  SUCCESSFUL
+}
+
+
+entity Transaction {
+  type TransactionType
+  amount Double required
+  commissionAmount Double
+  description String
+  paymentReference String required
+  status TransactionStatus
+  sourceAccountId String
+  destinationAccountId String
+  responseMessage String
+  accountOwnerId String required
+}
+
